@@ -1,0 +1,30 @@
+
+default_charset = "utf-8";
+
+h1, a {font-family: Helvetica Neue,Helvetica,Arial,sans-serif; }
+
+input[type="file"] {
+    padding: 10px;
+    margin: 15px;
+    border: 2px solid black;
+}
+
+button {
+    background-color: #fcf75a;
+    padding: 15px 25px 15px 25px;
+    border: none;
+    color: #333;
+    font-family: arial;
+    text-transform: uppercase;
+}
+
+table, td,th {
+    background-color: lightblue;
+    border-collapse:collapse;
+    width: 100%
+    border: 1px solid black;
+    margin: 5px;
+}
+
+th {background-color: lightblue; }
+
