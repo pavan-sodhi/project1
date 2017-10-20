@@ -19,61 +19,9 @@ class table extends page
         }
         fclose($f1);
         printfunc::printThis('</table></body></html>');
+        $this->html .=  '<a href="/~ps355/project1/project1/index.php?page=upload"> Click here to upload more csv files </a><br>';
 
 
-        /*$row = 1;
-        if (($handle = fopen("uploads/" . $_REQUEST['file'], "r")) !== FALSE)
-        {
-
-            echo '<table border="1">';
-
-            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE)
-            {
-                $num = count($data);
-                if ($row == 1)
-                    {
-                    echo '<thead><tr>';
-                    }
-                else
-                    {
-                    echo '<tr>';
-                    }
-
-                for ($i=0; $i < $num; $i++)
-                {
-    //                echo $data[$i] . "<br />\n";
-                    if(empty($data[$i]))
-                    {
-                        $value = "&nbsp;";
-                    }
-                    else
-                    {
-                        $value = $data[$i];
-                    }
-                    if ($row == 1)
-                        {
-                        echo '<th>'.$value.'</th>';
-                        }
-                    else
-                        {
-                        echo '<td>'.$value.'</td>';
-                        }
-                }
-
-                if ($row == 1)
-                {
-                    echo '</tr></thead><tbody>';
-                }
-                else
-                {
-                    echo '</tr>';
-                }
-                $row++;
-            }
-
-            echo '</tbody></table>';
-            fclose($handle);
-        }*/
     }//get
 }
 ?>
