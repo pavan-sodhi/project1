@@ -7,10 +7,7 @@ class htmltags
         return '<h1><b><i>' . $text . '</i></b></h1>';
     }
 
-    static public function message($text)
-    {
-        return '<span class="error">' . $text . '</span>';
-    }
+ 
 
 }
 
