@@ -33,46 +33,5 @@ $obj = new main(); // instantiate obj
             }
             }
 
-    abstract class page{
-// add html structure check protected class html
-    public $html;
-    public function __construct(){
-        $this->html .= '<html>';
-        $this->html .= '<link rel="stylesheet" href="styles/styles.css">';
-        $this->html .= '<body>';
-    }
-
-
-    //destruct function and html print
-    public function __destruct(){
-        $this->html .= '</body></html>';
-        printfunc::printThis($this->html);
-    }
-
-    public function get() {
-
-        echo 'Default get message';
-    }
-
-    public function post() {
-        print_r($_POST);
-    }
-}
-
-class upload extends page
-{
-    public function get()
-    {
-        $form = '<form action="upload.php" method="post" enctype="multipart/form-data">';
-        $form .= '<input type="file" name="fileToUpload" id="fileToUpload">';
-        $form .= '<input type="submit" value="Upload File" name="submit">';
-        $form .= '</form>';
-        $this->html .= htmltags::headingOne('IS 601 :: Project :: Upload a CSV File to view as a Table');
-        $this->html .= $form;
-    }
-
-}
-
-
 
 ?>

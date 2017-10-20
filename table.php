@@ -1,47 +1,79 @@
 <?php
+class table extends page
+{
 
-class table extends page{
-    public function get(){
-        //Take file variable from header function in upload form class
+    public function get()
+    {
         $filename = $_REQUEST['filename'];
-        //Open specified file in URL
-        $row = 1;
-        if (($handle = fopen("uploads/".$filename,"r")) !== FALSE){
+        $f1 = fopen($filename,"r");
+
+        $data = fgetcsv($f1);
+        printfunc::printThis('<html><body><table>');
+        while(($data =	fgetcsv($f1)) !== FALSE){
+            //generate HTML
+            printfunc::printThis('<tr>');
+            foreach($data as $cell){
+                printfunc::printThis('<td>' . htmlspecialchars($cell) . '</td>');
+            }
+            printfunc::printThis('</tr>');
+        }
+        fclose($f1);
+        printfunc::printThis('</table></body></html>');
+
+
+        /*$row = 1;
+        if (($handle = fopen("uploads/" . $_REQUEST['file'], "r")) !== FALSE)
+        {
+
             echo '<table border="1">';
-            //Assign the opened csv file to data variable
-            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                //count the data variable and assign it to a variable
+
+            while (($data = fgetcsv($handle, 1000, ";")) !== FALSE)
+            {
                 $num = count($data);
-                //create the tableheader if the first row, otherwise just create the row
-                if ($row == 1){
+                if ($row == 1)
+                    {
                     echo '<thead><tr>';
-                } else {
+                    }
+                else
+                    {
                     echo '<tr>';
-                }
-                //enter data into cells
-                for ($i=0; $i < $num; $i++){
-                    if(empty($data[$i])) {
+                    }
+
+                for ($i=0; $i < $num; $i++)
+                {
+    //                echo $data[$i] . "<br />\n";
+                    if(empty($data[$i]))
+                    {
                         $value = "&nbsp;";
-                    } else {
+                    }
+                    else
+                    {
                         $value = $data[$i];
                     }
-                    if ($row == 1) {
+                    if ($row == 1)
+                        {
                         echo '<th>'.$value.'</th>';
-                    } else {
+                        }
+                    else
+                        {
                         echo '<td>'.$value.'</td>';
-                    }
+                        }
                 }
-                //close the row
-                if ($row == 1) {
+
+                if ($row == 1)
+                {
                     echo '</tr></thead><tbody>';
-                } else {
+                }
+                else
+                {
                     echo '</tr>';
                 }
                 $row++;
             }
+
             echo '</tbody></table>';
             fclose($handle);
-        }
-    }
+        }*/
+    }//get
 }
 ?>
