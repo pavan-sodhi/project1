@@ -24,4 +24,4 @@ class table extends page
 
     }//get
 }
-?>
+?>cd ..
