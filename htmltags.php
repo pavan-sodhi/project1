@@ -7,7 +7,7 @@ class htmltags
         return '<h1><b><i>' . $text . '</i></b></h1>';
     }
 
- 
+
 
 }
 
