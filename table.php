@@ -19,7 +19,9 @@ class table extends page
         }
         fclose($f1);
         printfunc::printThis('</table></body></html>');
+        $this->html .= htmltags::horizontalRule();
         $this->html .=  '<a href="/~ps355/project1/project1/index.php?page=upload"> Click here to upload more csv files </a><br>';
+        $this->html .= htmltags::horizontalRule();
 
 
     }//get
