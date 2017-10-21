@@ -18,7 +18,7 @@ abstract class page{
 
     public function get() {
 
-        echo 'Default get message';
+        printfunc::printThis ('Default get message');
     }
 
     public function post() {
